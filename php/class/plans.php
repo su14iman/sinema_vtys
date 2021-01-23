@@ -32,15 +32,15 @@
         public function create($arg){ 
             return $this->sqli->query("
                 INSERT INTO `".$this->tableName."` 
-                (`
+                (
                     `".$this->fields[0]."`,
                     `".$this->fields[1]."`
-                `) 
+                ) 
                 VALUES 
-                ('
+                (
                     '".$this->sIO($arg->from_date)."',
                     '".$this->sIO($arg->to_date)."'
-                ');   
+                );   
             ");
         }
         public function update($arg){ 

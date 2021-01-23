@@ -33,14 +33,14 @@
                 INSERT INTO `".$this->tableName."` 
                 (`".$this->fields[0]."`) 
                 VALUES 
-                ('".$this->sIO($arg->name)."');   
+                ('".$this->sIO($arg->genre_name)."');   
             ");
         }
         public function update($arg){ 
             return $this->sqli()->query("
                 UPDATE `".$this->tableName."` 
                 SET 
-                `".$this->fields[0]."` = '".$this->sIO($arg->name)."' 
+                `".$this->fields[0]."` = '".$this->sIO($arg->genre_name)."' 
                 WHERE `".$this->tableID."` = ".intval($arg->id).";  
             ");   
         }

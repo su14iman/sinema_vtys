@@ -43,13 +43,13 @@
                     `".$this->fields[4]."`
                 ) 
                 VALUES 
-                ('
-                    ".intval($arg->genre_id)."',
+                (
+                    ".intval($arg->genre_id).",
                     '".$this->sIO($arg->movie_name)."',
                     '".$this->sIO($arg->movie_director)."',
                     '".$this->sIO($arg->movie_date)."',
                     '".$this->sIO($arg->movie_language)."'
-                ');   
+                );   
             ");
         }
         public function update($arg){ 

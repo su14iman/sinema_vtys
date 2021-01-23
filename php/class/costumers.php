@@ -43,13 +43,13 @@
                     `".$this->fields[4]."`
                 ) 
                 VALUES  
-                ('
+                (
                     '".$this->sIO($arg->costumer_name)."',
                     '".$this->sIO($arg->costumer_surname)."',
                     ".intval($arg->costumer_phone).",
                     '".$this->sIO($arg->costumer_email)."',
                     '".$this->sIO(md5($arg->costumer_password))."'
-                ');   
+                );   
             ");
         }
         public function update($arg){ 

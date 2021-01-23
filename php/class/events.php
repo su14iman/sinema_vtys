@@ -37,10 +37,10 @@
                     `".$this->fields[1]."`
                 ) 
                 VALUES 
-                ('
+                (
                     ".intval($arg->plan_id).",
                     ".intval($arg->movie_id)."
-                ');   
+                );   
             ");
         }
         public function update($arg){ 

@@ -44,12 +44,18 @@ class salesClass {
         $arg->sales_person_password = $newPassword;
         return $this->sales->updatePassword($arg);
     }
+    public function salesGet($arg){
+        return $this->sales->get($arg);
+    }
 
     #Movies
 
         // genres
         public function genresFind(){
             return $this->genres->find();
+        }
+        public function genresGet($arg){
+            return $this->genres->get($arg);
         }
         public function genresCreate($arg){
             return $this->genres->create($arg);
@@ -61,6 +67,9 @@ class salesClass {
 
     public function movieFind(){
         return $this->movies->find();
+    }
+    public function movieGet($arg){
+        return $this->movies->get($arg);
     }
     public function movieCreate($arg){
         return $this->movies->create($arg);
@@ -76,6 +85,9 @@ class salesClass {
         public function plansFind(){
             return $this->plans->find();
         }
+        public function plansGet($arg){
+            return $this->plans->get($arg);
+        }
         public function plansCreate($arg){
             return $this->plans->create($arg);
         }
@@ -87,6 +99,9 @@ class salesClass {
     // events
     public function eventsFind(){
         return $this->events->find();
+    }
+    public function eventsGet($arg){
+        return $this->events->get($arg);
     }
     public function eventsCreate($arg){
         return $this->events->create($arg);
@@ -101,6 +116,9 @@ class salesClass {
     #costumers
     public function costumersFind(){
         return $this->costumers->find();
+    }
+    public function costumersGet($arg){
+        return $this->costumers->get($arg);
     }
     public function costumersCreate($arg){
         return $this->costumers->create($arg);

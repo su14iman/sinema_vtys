@@ -66,6 +66,6 @@
       }
     </style>
 
-    <title>Hello, world!</title>
+    <title>Sinema VTYS</title>
   </head>
   <body>
