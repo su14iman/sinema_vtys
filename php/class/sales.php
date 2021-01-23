@@ -64,14 +64,6 @@
                 WHERE `".$this->tableID."` = ".intval($arg->id).";  
             ");   
         }
-        public function updatePassword($arg){ 
-            return $this->sqli()->query("
-                UPDATE `".$this->tableName."` 
-                SET 
-                    `".$this->fields[4]."` = '".$this->sIO(md5($arg->sales_person_password))."'
-                WHERE `".$this->tableID."` = ".intval($arg->id).";  
-            ");   
-        }
 
         public function login($arg){
             $query =  $this->sqli()->query("

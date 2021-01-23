@@ -35,14 +35,14 @@ class salesClass {
     public function signin($arg){
         return $this->sales->login($arg);
     }
+    public function signinCostumers($arg){
+        return $this->costumers->login($arg);
+    }
     public function signup($arg){
         return $this->sales->create($arg);
     }
-    public function changePassword($myID,$newPassword){
-        $arg = new \stdClass;
-        $arg->id = $myID;
-        $arg->sales_person_password = $newPassword;
-        return $this->sales->updatePassword($arg);
+    public function signupCostumers($arg){
+        return $this->costumers->create($arg);
     }
     public function salesGet($arg){
         return $this->sales->get($arg);

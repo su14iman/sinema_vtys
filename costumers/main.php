@@ -1,11 +1,13 @@
 <?php
+include("./session.php");
 
-    include('../assets/layouts/hedaer.php'); // head require
-    include('../assets/layouts/navbar.php'); // nav require
 
-        include("../assets/pages/tickets.php"); // content require
+    include('../assets/layouts/hedaerSales.php'); // head require
+    include('../assets/layouts/navbarSales.php'); // nav require
 
-    include('../assets/layouts/footer.php'); // footer require
+        // include("../assets/pages/salse/tickets.php"); // content require
+
+    include('../assets/layouts/footerSales.php'); // footer require
 
 
 ?>
