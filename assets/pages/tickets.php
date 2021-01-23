@@ -1,5 +1,5 @@
 <div class="container-fluid mt-5 mb-5">
-  <h3 class="text-center" id="header">Movies</h3>
+  <h3 class="text-center" id="header">Tickets</h3>
 </div>
 <div class="container-fluid mt-5 m-5">
     <form class="form-card card">

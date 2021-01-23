@@ -63,7 +63,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">password</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">logout</a>
+                <a class="dropdown-item" href="signout.php">logout</a>
                 </div>
             </li>
         </ul>

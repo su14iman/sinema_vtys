@@ -5,9 +5,7 @@
 // error_reporting(0);
 // global $sqli;
 
-
-include("./config.php");
-include("./class/autoload.php");
+include("../php/class/autoload.php");
 
 class salesClass {
     private $sales;
@@ -37,7 +35,6 @@ class salesClass {
     public function signin($arg){
         return $this->sales->login($arg);
     }
-
     public function signup($arg){
         return $this->sales->create($arg);
     }
