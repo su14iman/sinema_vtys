@@ -78,9 +78,9 @@
             $salesArg->id= $rows['sales_person_id'];
             $sales = $salesClass->salesGet($salesArg);
 
-              $sales_name = $sales['sales_person_name'];
-              $sales_surname = $sales['sales_person_surname'];
-              $sales_email = $sales['sales_person_email'];
+              @$sales_name = $sales['sales_person_name'];
+              @$sales_surname = $sales['sales_person_surname'];
+              @$sales_email = $sales['sales_person_email'];
               
             
             $genreArg = new \stdClass;
