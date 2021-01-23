@@ -11,7 +11,7 @@
  Target Server Version : 50638
  File Encoding         : 65001
 
- Date: 20/01/2021 22:17:00
+ Date: 23/01/2021 13:01:38
 */
 
 SET NAMES utf8mb4;
@@ -46,7 +46,7 @@ CREATE TABLE `events` (
   KEY `movie_id` (`movie_id`),
   CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `plan_id` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`plan_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for genres
@@ -56,7 +56,7 @@ CREATE TABLE `genres` (
   `genre_id` int(11) NOT NULL AUTO_INCREMENT,
   `genre_name` varchar(30) NOT NULL,
   PRIMARY KEY (`genre_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for halls
@@ -66,7 +66,7 @@ CREATE TABLE `halls` (
   `hall_id` int(11) NOT NULL AUTO_INCREMENT,
   `hall_capasity` int(11) NOT NULL,
   PRIMARY KEY (`hall_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for movies
@@ -82,7 +82,7 @@ CREATE TABLE `movies` (
   PRIMARY KEY (`movie_id`),
   KEY `genre_id` (`genre_id`),
   CONSTRAINT `genre_id` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`genre_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for plans
@@ -93,7 +93,7 @@ CREATE TABLE `plans` (
   `from_date` datetime NOT NULL,
   `to_date` datetime NOT NULL,
   PRIMARY KEY (`plan_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for sales_persons
@@ -109,7 +109,7 @@ CREATE TABLE `sales_persons` (
   PRIMARY KEY (`sales_person_id`),
   UNIQUE KEY `sales_person_phone` (`sales_person_phone`),
   UNIQUE KEY `sales_person_email` (`sales_person_email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for seats
@@ -135,20 +135,20 @@ CREATE TABLE `seats` (
 DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
   `ticket_id` int(11) NOT NULL AUTO_INCREMENT,
-  `movie_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
   `costumer_id` int(11) DEFAULT NULL,
   `sales_person_id` int(11) DEFAULT NULL,
   `hall_id` int(11) NOT NULL,
   `ticket_time` datetime NOT NULL,
   PRIMARY KEY (`ticket_id`),
-  KEY `movie_id` (`movie_id`),
   KEY `costumer_id` (`costumer_id`),
   KEY `sales_person_id` (`sales_person_id`),
   KEY `hall_id` (`hall_id`),
-  CONSTRAINT `tickets_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`),
-  CONSTRAINT `tickets_ibfk_2` FOREIGN KEY (`costumer_id`) REFERENCES `costumers` (`costumer_id`),
+  KEY `tickets_ibfk_1` (`event_id`),
+  CONSTRAINT `tickets_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `tickets_ibfk_2` FOREIGN KEY (`costumer_id`) REFERENCES `costumers` (`costumer_id`) ON DELETE SET NULL ON UPDATE NO ACTION,
   CONSTRAINT `tickets_ibfk_3` FOREIGN KEY (`sales_person_id`) REFERENCES `sales_persons` (`sales_person_id`),
-  CONSTRAINT `tickets_ibfk_5` FOREIGN KEY (`hall_id`) REFERENCES `halls` (`hall_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `tickets_ibfk_4` FOREIGN KEY (`hall_id`) REFERENCES `halls` (`hall_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 SET FOREIGN_KEY_CHECKS = 1;
