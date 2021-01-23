@@ -33,20 +33,6 @@ CREATE TABLE `costumers` (
   UNIQUE KEY `costumer_email` (`costumer_email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- ----------------------------
--- Table structure for events
--- ----------------------------
-DROP TABLE IF EXISTS `events`;
-CREATE TABLE `events` (
-  `event_id` int(11) NOT NULL AUTO_INCREMENT,
-  `plan_id` int(11) NOT NULL,
-  `movie_id` int(11) NOT NULL,
-  PRIMARY KEY (`event_id`),
-  KEY `plan_id` (`plan_id`),
-  KEY `movie_id` (`movie_id`),
-  CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `plan_id` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`plan_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for genres
@@ -96,6 +82,22 @@ CREATE TABLE `plans` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Table structure for events
+-- ----------------------------
+DROP TABLE IF EXISTS `events`;
+CREATE TABLE `events` (
+  `event_id` int(11) NOT NULL AUTO_INCREMENT,
+  `plan_id` int(11) NOT NULL,
+  `movie_id` int(11) NOT NULL,
+  PRIMARY KEY (`event_id`),
+  KEY `plan_id` (`plan_id`),
+  KEY `movie_id` (`movie_id`),
+  CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `plan_id` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`plan_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
 -- Table structure for sales_persons
 -- ----------------------------
 DROP TABLE IF EXISTS `sales_persons`;
@@ -111,23 +113,6 @@ CREATE TABLE `sales_persons` (
   UNIQUE KEY `sales_person_email` (`sales_person_email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- ----------------------------
--- Table structure for seats
--- ----------------------------
-DROP TABLE IF EXISTS `seats`;
-CREATE TABLE `seats` (
-  `seat_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ticket_id` int(11) NOT NULL,
-  `hall_id` int(11) NOT NULL,
-  `event_id` int(11) NOT NULL,
-  PRIMARY KEY (`seat_id`),
-  KEY `ticket_id` (`ticket_id`),
-  KEY `hall_id` (`hall_id`),
-  KEY `event_id` (`event_id`),
-  CONSTRAINT `event_id` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `hall_id` FOREIGN KEY (`hall_id`) REFERENCES `halls` (`hall_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `ticket_id` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`ticket_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for tickets
@@ -150,5 +135,26 @@ CREATE TABLE `tickets` (
   CONSTRAINT `tickets_ibfk_3` FOREIGN KEY (`sales_person_id`) REFERENCES `sales_persons` (`sales_person_id`),
   CONSTRAINT `tickets_ibfk_4` FOREIGN KEY (`hall_id`) REFERENCES `halls` (`hall_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+
+
+-- ----------------------------
+-- Table structure for seats
+-- ----------------------------
+DROP TABLE IF EXISTS `seats`;
+CREATE TABLE `seats` (
+  `seat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ticket_id` int(11) NOT NULL,
+  `hall_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  PRIMARY KEY (`seat_id`),
+  KEY `ticket_id` (`ticket_id`),
+  KEY `hall_id` (`hall_id`),
+  KEY `event_id` (`event_id`),
+  CONSTRAINT `event_id` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hall_id` FOREIGN KEY (`hall_id`) REFERENCES `halls` (`hall_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `ticket_id` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`ticket_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 SET FOREIGN_KEY_CHECKS = 1;
