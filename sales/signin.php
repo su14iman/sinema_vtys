@@ -14,7 +14,7 @@ include("../php/salesClass.php");
     $error = '';
 
   if (isset($_SESSION['sales_person_id'])) {
-    header('Location: ../main.php');
+    header('Location: ../tickets.php');
     exit();
   }
 
@@ -24,7 +24,7 @@ include("../php/salesClass.php");
     $data->sales_person_password = $_POST['sales_person_password'];
     if($salesClass->signin($data) !== false){
       $_SESSION['sales_person_id'] = $salesClass->signin($data);
-      header('Location: main.php');
+      header('Location: tickets.php');
       exit();  
     }else{
       $error = "Email or password worrng ! ";
