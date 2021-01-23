@@ -32,6 +32,13 @@
                 WHERE `".$this->tableID."` = ".intval($arg->id).";
             ");  
         }
+        public function removeMy($arg){ 
+            return $this->sqli()->query("
+                DELETE FROM `".$this->tableName."` 
+                WHERE `".$this->tableID."` = ".intval($arg->id)."
+                AND `costumer_id` = ".intval($arg->myID).";
+            ");  
+        }
         public function create($arg){ 
             return $this->sqli->query("
                 INSERT INTO `".$this->tableName."` 
@@ -46,8 +53,8 @@
                 (
                     ".intval($arg->event_id).",
                     ".$arg->costumer_id.",
-                    ".intval($arg->sales_person_id).",
-                    ".intval($arg->hall_id).",
+                    ".$arg->sales_person_id.",
+                    ".$arg->hall_id.",
                     '".date("Y-m-d H:i:s")."'
                 );   
             ");

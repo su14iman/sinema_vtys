@@ -14,7 +14,7 @@ include("../php/salesClass.php");
     $error = '';
 
   if (isset($_SESSION['costumer_id'])) {
-    header('Location: ../main.php');
+    header('Location: ../explorer.php');
     exit();
   }
 
@@ -23,8 +23,8 @@ include("../php/salesClass.php");
     $data->costumer_email = $_POST['costumer_email'];
     $data->costumer_password = $_POST['costumer_password'];
     if($salesClass->signinCostumers($data) !== false){
-      $_SESSION['costumer_id'] = $salesClass->signin($data);
-      header('Location: main.php');
+      $_SESSION['costumer_id'] = $salesClass->signinCostumers($data);
+      header('Location: explorer.php');
       exit();  
     }else{
       $error = "Email or password worrng ! ";

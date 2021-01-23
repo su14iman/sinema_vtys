@@ -157,11 +157,18 @@ class salesClass {
     public function ticketsFind(){
         return $this->tickets->find();
     }
+    public function ticketsFindMy($myID){
+        $q = "WHERE `costumer_id` = ".$myID;
+        return $this->tickets->find($q);
+    }
     public function ticketsCreate($arg){
         return $this->tickets->create($arg);
     }
     public function ticketsRemove($arg){
         return $this->tickets->remove($arg);
+    }
+    public function ticketsRemoveMy($arg){
+        return $this->tickets->removeMy($arg);
     }
 
 

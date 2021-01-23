@@ -145,7 +145,7 @@ DROP TABLE IF EXISTS `seats`;
 CREATE TABLE `seats` (
   `seat_id` int(11) NOT NULL AUTO_INCREMENT,
   `ticket_id` int(11) NOT NULL,
-  `hall_id` int(11) NOT NULL,
+  `hall_id` int(11) DEFAULT NULL,
   `event_id` int(11) NOT NULL,
   PRIMARY KEY (`seat_id`),
   KEY `ticket_id` (`ticket_id`),

@@ -63,9 +63,9 @@
                     $costumerArg->id= $rows['costumer_id'];
                     $costumer = $salesClass->costumersGet($costumerArg);
 
-                      $costumer_name = $costumer['costumer_name'];
-                      $costumer_surname = $costumer['costumer_surname'];
-                      $costumer_email = $costumer['costumer_email'];
+                      @$costumer_name = $costumer['costumer_name'];
+                      @$costumer_surname = $costumer['costumer_surname'];
+                      @$costumer_email = $costumer['costumer_email'];
                     
                     
                     $salesArg = new \stdClass;
@@ -82,7 +82,7 @@
                     $genre = $salesClass->genresGet($genreArg);
                     
                       $genreName = $genre['genre_name'];
-                      $hall_id = $rows['hall_id'];
+                      @$hall_id = $rows['hall_id'];
                       $ticket_time = $rows['ticket_time'];
                     
                   

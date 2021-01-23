@@ -47,8 +47,8 @@ class db {
             $this->query_closed = FALSE;
 			$this->query_count++;
         } else {
-            $this->error('Unable to prepare MySQL statement (check your syntax) - ' . $this->connection->error);
-            // $this->error('query: - ' . $query); // for debug :))
+            // $this->error('Unable to prepare MySQL statement (check your syntax) - ' . $this->connection->error);
+            $this->error('query: - ' . $query); // for debug :))
         }
 		return $this;
     }
