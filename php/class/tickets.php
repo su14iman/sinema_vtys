@@ -36,11 +36,11 @@
             return $this->sqli->query("
                 INSERT INTO `".$this->tableName."` 
                 (`
-                    ".$this->fields[0].",
-                    ".$this->fields[1].",
-                    ".$this->fields[2].",
-                    ".$this->fields[3].",
-                    ".$this->fields[4]."
+                    `".$this->fields[0]."`,
+                    `".$this->fields[1]."`,
+                    `".$this->fields[2]."`,
+                    `".$this->fields[3]."`,
+                    `".$this->fields[4]."`
                 `) 
                 VALUES 
                 ('
@@ -48,7 +48,7 @@
                     ".intval($arg->costumer_id).",
                     ".intval($arg->sales_person_id).",
                     ".intval($arg->hall_id).",
-                    ".$this->sIO($arg->ticket_time)."
+                    ".time()."
                 ');   
             ");
         }
@@ -56,11 +56,11 @@
             return $this->sqli()->query("
                 UPDATE `".$this->tableName."` 
                 SET 
-                    `".$this->fields[0]."` = '".intval($arg->movie_id)."',
-                    `".$this->fields[1]."` = '".intval($arg->costumer_id)."',
-                    `".$this->fields[2]."` = '".intval($arg->sales_person_id)."',
-                    `".$this->fields[3]."` = '".intval($arg->hall_id)."',
-                    `".$this->fields[4]."` = '".$this->sIO($arg->ticket_time)."'
+                    `".$this->fields[0]."` = ".intval($arg->movie_id).",
+                    `".$this->fields[1]."` = ".intval($arg->costumer_id).",
+                    `".$this->fields[2]."` = ".intval($arg->sales_person_id).",
+                    `".$this->fields[3]."` = ".intval($arg->hall_id).",
+                    `".$this->fields[4]."` = ".time()."
                 WHERE `".$this->tableID."` = ".intval($arg->id).";  
             ");   
         }

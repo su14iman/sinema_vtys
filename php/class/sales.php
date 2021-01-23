@@ -35,21 +35,21 @@
         public function create($arg){ 
             return $this->sqli->query("
                 INSERT INTO `".$this->tableName."` 
-                (`
-                    ".$this->fields[0].",
-                    ".$this->fields[1].",
-                    ".$this->fields[2].",
-                    ".$this->fields[3].",
-                    ".$this->fields[4]."
-                `) 
+                (
+                    `".$this->fields[0]."`,
+                    `".$this->fields[1]."`,
+                    `".$this->fields[2]."`,
+                    `".$this->fields[3]."`,
+                    `".$this->fields[4]."`
+                ) 
                 VALUES 
-                ('
-                    ".$this->sIO($arg->sales_person_name).",
-                    ".$this->sIO($arg->sales_person_surname).",
+                (
+                    '".$this->sIO($arg->sales_person_name)."',
+                    '".$this->sIO($arg->sales_person_surname)."',
                     ".intval($arg->sales_person_phone).",
-                    ".$this->sIO($arg->sales_person_email).",
-                    ".$this->sIO(md5($arg->sales_person_password))."
-                ');   
+                    '".$this->sIO($arg->sales_person_email)."',
+                    '".$this->sIO(md5($arg->sales_person_password))."'
+                );   
             ");
         }
         public function update($arg){ 
@@ -58,7 +58,7 @@
                 SET 
                     `".$this->fields[0]."` = '".$this->sIO($arg->sales_person_name)."',
                     `".$this->fields[1]."` = '".$this->sIO($arg->sales_person_surname)."',
-                    `".$this->fields[2]."` = '".intval($arg->sales_person_phone)."',
+                    `".$this->fields[2]."` = ".intval($arg->sales_person_phone).",
                     `".$this->fields[3]."` = '".$this->sIO($arg->sales_person_email)."',
                     `".$this->fields[4]."` = '".$this->sIO(md5($arg->sales_person_password))."'
                 WHERE `".$this->tableID."` = ".intval($arg->id).";  

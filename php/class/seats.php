@@ -34,9 +34,9 @@
             return $this->sqli->query("
                 INSERT INTO `".$this->tableName."` 
                 (`
-                    ".$this->fields[0].",
-                    ".$this->fields[1].",
-                    ".$this->fields[2]."
+                    `".$this->fields[0]."`,
+                    `".$this->fields[1]."`,
+                    `".$this->fields[2]."`
                 `) 
                 VALUES 
                 ('
@@ -50,9 +50,9 @@
             return $this->sqli()->query("
                 UPDATE `".$this->tableName."` 
                 SET 
-                    `".$this->fields[0]."` = '".intval($arg->ticket_id)."',
-                    `".$this->fields[1]."` = '".intval($arg->hall_id)."',
-                    `".$this->fields[2]."` = '".intval($arg->event_id)."'
+                    `".$this->fields[0]."` = ".intval($arg->ticket_id).",
+                    `".$this->fields[1]."` = ".intval($arg->hall_id).",
+                    `".$this->fields[2]."` = ".intval($arg->event_id)."
                 WHERE `".$this->tableID."` = ".intval($arg->id).";  
             ");   
         }

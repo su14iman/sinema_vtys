@@ -5,14 +5,14 @@
 // error_reporting(0);
 // global $sqli;
 
-    include("./class/costumers.php");
-    include("./class/events.php");
-    include("./class/genres.php");
-    include("./class/halls.php");
-    include("./class/movies.php");
-    include("./class/plans.php");
-    include("./class/sales.php");
-    include("./class/seats.php");
-    include("./class/tickets.php");
+    include("../php/class/costumers.php");
+    include("../php/class/events.php");
+    include("../php/class/genres.php");
+    include("../php/class/halls.php");
+    include("../php/class/movies.php");
+    include("../php/class/plans.php");
+    include("../php/class/sales.php");
+    include("../php/class/seats.php");
+    include("../php/class/tickets.php");
 
 ?>

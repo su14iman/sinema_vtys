@@ -32,10 +32,10 @@
         public function create($arg){ 
             return $this->sqli->query("
                 INSERT INTO `".$this->tableName."` 
-                (`
-                    ".$this->fields[0].",
-                    ".$this->fields[1]."
-                `) 
+                (
+                    `".$this->fields[0]."`,
+                    `".$this->fields[1]."`
+                ) 
                 VALUES 
                 ('
                     ".intval($arg->plan_id).",
@@ -47,8 +47,8 @@
             return $this->sqli()->query("
                 UPDATE `".$this->tableName."` 
                 SET 
-                    `".$this->fields[0]."` = '".intval($arg->plan_id)."',
-                    `".$this->fields[1]."` = '".intval($arg->movie_id)."'
+                    `".$this->fields[0]."` = ".intval($arg->plan_id).",
+                    `".$this->fields[1]."` = ".intval($arg->movie_id)."
                 WHERE `".$this->tableID."` = ".intval($arg->id).";  
             ");   
         }

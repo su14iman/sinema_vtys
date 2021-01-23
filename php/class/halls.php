@@ -33,14 +33,14 @@
                 INSERT INTO `".$this->tableName."` 
                 (`".$this->fields[0]."`) 
                 VALUES 
-                ('".intval($arg->hall_capasity)."');   
+                (".intval($arg->hall_capasity).");   
             ");
         }
         public function update($arg){ 
             return $this->sqli()->query("
                 UPDATE `".$this->tableName."` 
                 SET 
-                `".$this->fields[0]."` = '".intval($arg->hall_capasity)."' 
+                `".$this->fields[0]."` = ".intval($arg->hall_capasity)." 
                 WHERE `".$this->tableID."` = ".intval($arg->id).";  
             ");   
         }

@@ -35,20 +35,20 @@
         public function create($arg){ 
             return $this->sqli->query("
                 INSERT INTO `".$this->tableName."` 
-                (`
-                    ".$this->fields[0].",
-                    ".$this->fields[1].",
-                    ".$this->fields[2].",
-                    ".$this->fields[3].",
-                    ".$this->fields[4]."
-                `) 
+                (
+                    `".$this->fields[0]."`,
+                    `".$this->fields[1]."`,
+                    `".$this->fields[2]."`,
+                    `".$this->fields[3]."`,
+                    `".$this->fields[4]."`
+                ) 
                 VALUES 
                 ('
-                    ".intval($arg->genre_id).",
-                    ".$this->sIO($arg->movie_name).",
-                    ".$this->sIO($arg->movie_director).",
-                    ".$this->sIO($arg->movie_date).",
-                    ".$this->sIO($arg->movie_language)."
+                    ".intval($arg->genre_id)."',
+                    '".$this->sIO($arg->movie_name)."',
+                    '".$this->sIO($arg->movie_director)."',
+                    '".$this->sIO($arg->movie_date)."',
+                    '".$this->sIO($arg->movie_language)."'
                 ');   
             ");
         }
@@ -56,7 +56,7 @@
             return $this->sqli()->query("
                 UPDATE `".$this->tableName."` 
                 SET 
-                    `".$this->fields[0]."` = '".intval($arg->genre_id)."',
+                    `".$this->fields[0]."` = ".intval($arg->genre_id).",
                     `".$this->fields[1]."` = '".$this->sIO($arg->movie_name)."',
                     `".$this->fields[2]."` = '".$this->sIO($arg->movie_director)."',
                     `".$this->fields[3]."` = '".$this->sIO($arg->movie_date)."',
