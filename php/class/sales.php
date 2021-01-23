@@ -18,8 +18,8 @@
         );
 
 
-        public function find(){ 
-            return $this->sqli->query("SELECT * FROM `".$this->tableName."`");
+        public function find($query = null){ 
+            return $this->sqli->query("SELECT * FROM `".$this->tableName."`".$query);
         }
         public function get($arg){
             return $this->sqli()->query("
@@ -60,6 +60,14 @@
                     `".$this->fields[1]."` = '".$this->sIO($arg->sales_person_surname)."',
                     `".$this->fields[2]."` = '".intval($arg->sales_person_phone)."',
                     `".$this->fields[3]."` = '".$this->sIO($arg->sales_person_email)."',
+                    `".$this->fields[4]."` = '".$this->sIO(md5($arg->sales_person_password))."'
+                WHERE `".$this->tableID."` = ".intval($arg->id).";  
+            ");   
+        }
+        public function updatePassword($arg){ 
+            return $this->sqli()->query("
+                UPDATE `".$this->tableName."` 
+                SET 
                     `".$this->fields[4]."` = '".$this->sIO(md5($arg->sales_person_password))."'
                 WHERE `".$this->tableID."` = ".intval($arg->id).";  
             ");   

@@ -15,8 +15,8 @@
         );
 
 
-        public function find(){ 
-            return $this->sqli->query("SELECT * FROM `".$this->tableName."`");
+        public function find($query = null){ 
+            return $this->sqli->query("SELECT * FROM `".$this->tableName."`".$query);
         }
         public function get($arg){
             return $this->sqli()->query("
