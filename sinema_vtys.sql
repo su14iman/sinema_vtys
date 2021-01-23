@@ -27,7 +27,7 @@ CREATE TABLE `costumers` (
   `costumer_surname` varchar(35) NOT NULL,
   `costumer_phone` varchar(11) NOT NULL,
   `costumer_email` varchar(50) NOT NULL,
-  `costumer_password` varchar(18) NOT NULL,
+  `costumer_password` text NOT NULL,
   PRIMARY KEY (`costumer_id`),
   UNIQUE KEY `costumer_phone` (`costumer_phone`),
   UNIQUE KEY `costumer_email` (`costumer_email`)
@@ -105,7 +105,7 @@ CREATE TABLE `sales_persons` (
   `sales_person_surname` varchar(35) NOT NULL,
   `sales_person_phone` varchar(11) NOT NULL,
   `sales_person_email` varchar(50) NOT NULL,
-  `sales_person_password` varchar(18) NOT NULL,
+  `sales_person_password` text NOT NULL,
   PRIMARY KEY (`sales_person_id`),
   UNIQUE KEY `sales_person_phone` (`sales_person_phone`),
   UNIQUE KEY `sales_person_email` (`sales_person_email`)
